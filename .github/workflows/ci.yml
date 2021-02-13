@@ -16,6 +16,6 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Lint
-      - run: |
+        run: |
           go get -u golang.org/x/lint/golint &&
           golint -set_exit_status ./...
