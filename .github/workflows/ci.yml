@@ -1,0 +1,21 @@
+name: CI
+
+on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  lint:
+    name: Lint
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Lint
+      - run: |
+        go get -u golang.org/x/lint/golint
+        golint -set_exit_status ./...
